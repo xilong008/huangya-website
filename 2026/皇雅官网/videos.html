@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>视频展示 — 皇雅系统门窗西安工厂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --snow: #F8F7F4;
+      --cream: #EDEAE2;
+      --sand: #D9D2C4;
+      --warm-gray: #8A8278;
+      --charcoal: #3A3632;
+      --ink: #1C1A18;
+      --gold: #C4A67A;
+      --gold-light: #D4BC98;
+      --gold-dark: #A88B60;
+      --font-display: 'DM Serif Display', 'Noto Serif SC', serif;
+      --font-body: 'Noto Sans SC', sans-serif;
+      --font-chinese: 'Noto Serif SC', serif;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--snow);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1320px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 60px); }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 clamp(20px, 4vw, 60px);
+      transition: all 0.4s var(--ease);
+    }
+    .nav--solid {
+      background: rgba(248, 247, 244, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo-main {
+      font-family: var(--font-chinese);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 2px;
+    }
+    .nav-logo-sub {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 400;
+      color: var(--warm-gray);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      color: var(--warm-gray);
+      transition: color 0.3s;
+      position: relative;
+      text-decoration: none;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold-dark);
+      transition: width 0.3s var(--ease);
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      padding: 10px 28px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s var(--ease);
+    }
+    .nav-cta:hover { background: var(--gold-dark); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none; border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--ink);
+      transition: all 0.3s;
+    }
+    .nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translateY(6px); }
+    .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translateY(-6px); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: var(--snow);
+        padding: 32px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+      }
+    }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      min-height: 50vh;
+      min-height: 50dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 72px;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--snow) 0%, var(--cream) 100%);
+    }
+    .page-hero-content { position: relative; z-index: 2; }
+    .page-hero .section-overline { margin-bottom: 24px; }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .page-hero h1 em {
+      font-family: var(--font-chinese);
+      font-style: normal;
+      color: var(--gold-dark);
+      font-weight: 300;
+    }
+    .page-hero p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--warm-gray);
+      max-width: 500px;
+      line-height: 1.9;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    .section-overline {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .section-title em {
+      font-family: var(--font-chinese);
+      font-style: normal;
+      color: var(--gold-dark);
+      font-weight: 300;
+    }
+    .section-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--warm-gray);
+      line-height: 1.9;
+    }
+
+    /* ===== VIDEO GRID ===== */
+    .video-section {
+      padding: clamp(60px, 8vw, 120px) 0;
+      background: var(--white);
+    }
+    .video-header {
+      text-align: center;
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+    .video-header .section-desc { margin: 0 auto; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(16px, 2vw, 24px);
+    }
+    .video-card {
+      background: var(--snow);
+      border: 1px solid var(--cream);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: all 0.4s var(--ease);
+      cursor: pointer;
+    }
+    .video-card:hover {
+      border-color: var(--gold-light);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+      transform: translateY(-4px);
+    }
+    .video-thumb {
+      aspect-ratio: 9/16;
+      overflow: hidden;
+      position: relative;
+      background: var(--cream);
+    }
+    .video-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+    .video-card:hover .video-thumb img { transform: scale(1.04); }
+    .video-play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px; height: 56px;
+      background: rgba(28,26,24,0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      transition: all 0.3s var(--ease);
+      backdrop-filter: blur(4px);
+    }
+    .video-card:hover .video-play-btn {
+      background: var(--gold-dark);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+    .video-duration {
+      position: absolute;
+      bottom: 8px; right: 8px;
+      background: rgba(28,26,24,0.8);
+      color: var(--white);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 3px;
+      backdrop-filter: blur(4px);
+    }
+    .video-body { padding: 14px 16px; }
+    .video-title {
+      font-family: var(--font-chinese);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    @media (max-width: 1024px) { .video-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) { .video-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .video-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } }
+
+    /* ===== VIDEO MODAL ===== */
+    .video-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(28,26,24,0.92);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      flex-direction: column;
+    }
+    .video-modal.open { display: flex; }
+    .video-modal-close {
+      position: absolute;
+      top: 24px; right: 24px;
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+      z-index: 10;
+    }
+    .video-modal-close:hover { background: var(--gold-dark); }
+    .video-modal-player {
+      max-width: 480px;
+      width: 100%;
+      aspect-ratio: 9/16;
+      max-height: 85vh;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      animation: vmIn 0.35s var(--ease);
+    }
+    .video-modal-player iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    @keyframes vmIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .video-modal-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.08);
+      border: none;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    .video-modal-nav:hover { background: rgba(255,255,255,0.15); }
+    .video-modal-prev { left: 24px; }
+    .video-modal-next { right: 24px; }
+    .video-modal-caption {
+      color: var(--white);
+      font-family: var(--font-chinese);
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+      margin-top: 16px;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: clamp(48px, 6vw, 80px) 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+      gap: clamp(24px, 4vw, 48px);
+      margin-bottom: 48px;
+    }
+    .footer-heading {
+      font-family: var(--font-chinese);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .footer-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.8;
+      margin-top: 14px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy, .footer-icp { font-size: 12px; font-weight: 300; }
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="top">
+  <div class="nav-inner">
+    <a href="index_v2.html" class="nav-logo">
+      <div class="nav-logo-main">皇雅系统门窗</div>
+      <div class="nav-logo-sub">源自佛山 · 始于匠心</div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">关于</a></li>
+      <li><a href="products.html">产品</a></li>
+      <li><a href="cases.html">案例</a></li>
+      <li><a href="videos.html">视频</a></li>
+      <li><a href="index_v2.html#advantages">优势</a></li>
+      <li><a href="index_v2.html#process">历程</a></li>
+      <li><a href="index_v2.html#contact">联系</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index_v2.html#contact" class="nav-cta">预约咨询</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="section-overline">Video Showcase</div>
+    <h1>视频<em>展示</em></h1>
+    <p>直观感受皇雅系统门窗的精湛工艺与卓越品质</p>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section" id="videos">
+  <div class="container">
+    <div class="video-header reveal">
+      <div class="section-overline">Tencent Video Channel</div>
+      <h2 class="section-title">官方<em>视频</em></h2>
+      <p class="section-desc">来自皇雅系统门窗腾讯视频官方频道，全方位展示产品细节与匠心工艺</p>
+    </div>
+
+    <div class="video-grid" id="videoGrid">
+      <!-- Videos injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO MODAL -->
+<div class="video-modal" id="videoModal">
+  <button class="video-modal-close" id="videoModalClose">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <button class="video-modal-nav video-modal-prev" id="videoModalPrev">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <div class="video-modal-player">
+    <iframe id="videoIframe" src="" allowfullscreen allow="autoplay"></iframe>
+  </div>
+  <button class="video-modal-nav video-modal-next" id="videoModalNext">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+  </button>
+  <div class="video-modal-caption" id="videoCaption"></div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="nav-logo-main" style="color: var(--white); font-size: 20px;">皇雅系统门窗</div>
+        <div class="nav-logo-sub" style="color: rgba(255,255,255,0.3); margin-top: 4px;">做没有中间商赚差价的系统好门窗</div>
+        <p class="footer-desc">皇亚铝业科技有限公司旗下品牌，西安工厂坐落于灞桥区秦汉大道2699号，服务西北区域客户。</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">产品中心</h4>
+        <ul class="footer-links">
+          <li><a href="products.html#tab-windows">平开系统窗</a></li>
+          <li><a href="products.html#tab-sliding">推拉系统·阳光房</a></li>
+          <li><a href="products.html">查看全部产品 &rarr;</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">案例鉴赏</h4>
+        <ul class="footer-links">
+          <li><a href="cases.html">全部案例</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">关于皇雅</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">品牌故事</a></li>
+          <li><a href="about.html#xian-factory">西安工厂</a></li>
+          <li><a href="about.html#timeline">发展历程</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">视频展示</h4>
+        <ul class="footer-links">
+          <li><a href="videos.html">全部视频</a></li>
+          <li><a href="https://v.qq.com/s/videoplus/9001604499/2" target="_blank">腾讯视频频道 &rarr;</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">联系我们</h4>
+        <ul class="footer-links">
+          <li><a href="tel:15319992005">15319992005</a></li>
+          <li><a href="mailto:info@huangyamc.com">info@huangyamc.com</a></li>
+          <li><a href="#">陕西省西安市灞桥区新合街道秦汉大道2699号</a></li>
+          <li><a href="https://www.huangyamc.com" target="_blank">www.huangyamc.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 皇亚铝业科技有限公司·西安工厂 版权所有</p>
+      <p class="footer-icp">陕西省西安市灞桥区新合街道秦汉大道2699号</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===== VIDEO DATA (from Tencent Video) =====
+  var VIDEOS = [
+    {"vid":"w3197ltwjz3","title":"一扇好窗隔绝喧嚣，一樘好门守护安稳。隔音密封、稳固耐用，把风雨挡在门外，把温暖与静谧留在家里。","duration":"00:46"},
+    {"vid":"i31978czlhm","title":"坚固耐用，安全守护每一天。","duration":"00:31"},
+    {"vid":"p3197xj29ll","title":"风不扰，雨不惊，家有好窗，岁月静好。","duration":"00:39"},
+    {"vid":"b3197casv44","title":"窗纳风景，门藏安心。","duration":"00:47"},
+    {"vid":"e3197ql3zt0","title":"一扇好窗，让家冬暖夏凉，安静又安全。","duration":"00:37"},
+    {"vid":"h3196zkvpyj","title":"以匠心筑窗，以品质安家。","duration":"00:47"},
+    {"vid":"s3196nhg4jz","title":"细节决定品质，无缝焊接、精准切割，每一扇都精工打造。","duration":"00:36"},
+    {"vid":"a3196lq4ful","title":"家的温暖，从一扇好的窗户开始。","duration":"00:10"},
+    {"vid":"h3196e5eh8t","title":"一屋两人三餐四季，好门窗守护每一刻。","duration":"00:10"},
+    {"vid":"m31961ebzg3","title":"门窗颜色自由定制。","duration":"00:10"},
+    {"vid":"t3189n1j516","title":"窗户颜色多的选不过来。","duration":"00:10"},
+    {"vid":"e318938dhdm","title":"终于不再是千篇一律的黑白灰了。","duration":"00:10"},
+    {"vid":"b3189clciu6","title":"封窗选对颜色了。","duration":"00:10"},
+    {"vid":"t31875m7p2z","title":"再见了传统的大玻璃。","duration":"00:21"},
+    {"vid":"x3187afac3n","title":"现在的阳台窗都这样做了。","duration":"00:18"},
+    {"vid":"t31874vpsu8","title":"居然还有人不知道，现在的封窗还能这样做。","duration":"00:21"},
+    {"vid":"h3187ae5u7h","title":"阳台封完窗后你后悔了吗？","duration":"00:20"},
+    {"vid":"s3187ddfuvx","title":"你喜欢这样的阳台风窗吗？","duration":"00:18"},
+    {"vid":"n3187eyi3qu","title":"现在的主流封窗方式。","duration":"00:18"},
+    {"vid":"f3187wstcog","title":"这阳台封了邻居羡慕坏了。","duration":"00:10"},
+    {"vid":"s3187xz0g94","title":"当初我说他乱花钱，现在我道歉。","duration":"00:20"},
+    {"vid":"m3187tzzhjl","title":"当初我说他乱花钱，现在我道歉。","duration":"00:24"},
+    {"vid":"z3186llwn7k","title":"农村自建房别墅案例。","duration":"00:10"},
+    {"vid":"u3186wnytoc","title":"系统门窗一线品牌。","duration":"00:10"},
+    {"vid":"z3186ktw7u7","title":"皇雅高定门窗。","duration":"00:10"},
+    {"vid":"a31869fum8b","title":"别墅封窗后的效果。","duration":"00:10"},
+    {"vid":"t3186tz8ph5","title":"这是不是你心中的理想大别野的诱惑，谁能拒绝？","duration":"00:10"},
+    {"vid":"p31862f4chb","title":"封完窗后，业主很满意，一个劲的不停夸我们专业。","duration":"00:10"},
+    {"vid":"h31859az1sa","title":"欧洲模式本土化，中国三四五六线市场的未来形态。","duration":"02:18"},
+    {"vid":"e3185geptwz","title":"广东省门窗协会天团领导班子。","duration":"01:22"},
+    {"vid":"r3185yqmb8p","title":"使命必达，责任重大。","duration":"01:04"},
+    {"vid":"d3184vh7sw8","title":"前景共睹，行业共建。","duration":"00:55"},
+    {"vid":"u3184rpd9qs","title":"肩负使命，责任重大。","duration":"01:04"},
+    {"vid":"h31845yfa9g","title":"门窗用水泥缝还是发泡剂。","duration":"02:25"},
+    {"vid":"x3184y5xnga","title":"对话一百位门窗人——夏林。","duration":"00:32"},
+    {"vid":"n3184j087gf","title":"对话一百位门窗人——李太福。","duration":"00:54"},
+    {"vid":"c3184i77dfu","title":"对话一百位门窗人——彭栋。","duration":"00:28"},
+    {"vid":"n3183otfuwv","title":"大品牌被成本压垮，区域工厂将崛起。","duration":"01:44"},
+    {"vid":"k318322iz2x","title":"探访老同学企业，发现了家装界的天花板。","duration":"01:53"},
+    {"vid":"d3183b7zphw","title":"一个标准化门窗厂应该是怎么样的？","duration":"01:21"}
+  ];
+
+  var currentIndex = 0;
+
+  // ===== RENDER VIDEO GRID =====
+  function renderVideos() {
+    var grid = document.getElementById('videoGrid');
+    var html = '';
+    for (var i = 0; i < VIDEOS.length; i++) {
+      var v = VIDEOS[i];
+      var delay = i % 4 === 0 ? '' : (i % 4 === 1 ? ' reveal-d1' : (i % 4 === 2 ? ' reveal-d2' : ' reveal-d3'));
+      html += '<div class="video-card reveal' + delay + '" data-video="' + i + '">' +
+        '<div class="video-thumb">' +
+        '<img src="https://vpic-cover.puui.qpic.cn/' + v.vid + '/' + v.vid + '_hz.jpg" alt="' + v.title + '" loading="lazy">' +
+        '<div class="video-play-btn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>' +
+        '<span class="video-duration">' + v.duration + '</span>' +
+        '</div>' +
+        '<div class="video-body"><h3 class="video-title">' + v.title + '</h3></div>' +
+        '</div>';
+    }
+    grid.innerHTML = html;
+  }
+  renderVideos();
+
+  // ===== SCROLL REVEAL =====
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    reveals.forEach(function(el) { observer.observe(el); });
+  } else {
+    reveals.forEach(function(el) { el.classList.add('visible'); });
+  }
+
+  // ===== NAV =====
+  var nav = document.querySelector('.nav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('nav--solid', window.scrollY > 60);
+  }, { passive: true });
+
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+      });
+    });
+  }
+  // Close menu when clicking anywhere outside nav
+  document.addEventListener('click', function(e) {
+    var nav = document.getElementById('top');
+    if (nav && !nav.contains(e.target)) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+    }
+  });
+
+  // ===== VIDEO MODAL =====
+  var videoModal = document.getElementById('videoModal');
+  var videoIframe = document.getElementById('videoIframe');
+  var videoCaption = document.getElementById('videoCaption');
+
+  function openVideo(index) {
+    currentIndex = index;
+    var v = VIDEOS[index];
+    videoIframe.src = 'https://v.qq.com/txp/iframe/player.html?vid=' + v.vid;
+    videoCaption.textContent = v.title;
+    videoModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideo() {
+    videoIframe.src = '';
+    videoModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function navigate(dir) {
+    currentIndex = (currentIndex + dir + VIDEOS.length) % VIDEOS.length;
+    var v = VIDEOS[currentIndex];
+    videoIframe.src = 'https://v.qq.com/txp/iframe/player.html?vid=' + v.vid;
+    videoCaption.textContent = v.title;
+  }
+
+  document.addEventListener('click', function(e) {
+    var card = e.target.closest('.video-card');
+    if (card) {
+      e.preventDefault();
+      openVideo(parseInt(card.getAttribute('data-video')));
+    }
+  });
+
+  document.getElementById('videoModalClose').addEventListener('click', closeVideo);
+  document.getElementById('videoModalPrev').addEventListener('click', function(e) { e.stopPropagation(); navigate(-1); });
+  document.getElementById('videoModalNext').addEventListener('click', function(e) { e.stopPropagation(); navigate(1); });
+  videoModal.addEventListener('click', function(e) {
+    if (e.target === videoModal) closeVideo();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeVideo();
+    if (e.key === 'ArrowLeft') navigate(-1);
+    if (e.key === 'ArrowRight') navigate(1);
+  });
+</script>
+
+</body>
+</html>

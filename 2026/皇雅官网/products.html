@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>产品中心 — 皇雅系统门窗西安工厂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --snow: #F8F7F4;
+      --cream: #EDEAE2;
+      --sand: #D9D2C4;
+      --warm-gray: #8A8278;
+      --charcoal: #3A3632;
+      --ink: #1C1A18;
+      --gold: #C4A67A;
+      --gold-light: #D4BC98;
+      --gold-dark: #A88B60;
+
+      --font-display: 'DM Serif Display', 'Noto Serif SC', serif;
+      --font-body: 'Noto Sans SC', sans-serif;
+      --font-chinese: 'Noto Serif SC', serif;
+
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--snow);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 clamp(20px, 4vw, 60px);
+      transition: all 0.4s var(--ease);
+    }
+    .nav--solid {
+      background: rgba(248, 247, 244, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo-main {
+      font-family: var(--font-chinese);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 2px;
+    }
+    .nav-logo-sub {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 400;
+      color: var(--warm-gray);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      color: var(--warm-gray);
+      transition: color 0.3s;
+      position: relative;
+      text-decoration: none;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold-dark);
+      transition: width 0.3s var(--ease);
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      padding: 10px 28px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s var(--ease);
+    }
+    .nav-cta:hover { background: var(--gold-dark); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none; border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--ink);
+      transition: all 0.3s;
+    }
+    .nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translateY(6px); }
+    .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translateY(-6px); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: var(--snow);
+        padding: 32px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+      }
+    }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      min-height: 60vh;
+      min-height: 60dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 72px;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--snow) 0%, var(--cream) 100%);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .page-hero .section-overline { margin-bottom: 24px; }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .page-hero h1 em {
+      font-family: var(--font-chinese);
+      font-style: normal;
+      color: var(--gold-dark);
+      font-weight: 300;
+    }
+    .page-hero p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--warm-gray);
+      max-width: 500px;
+      line-height: 1.9;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    .section-overline {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .section-title em {
+      font-family: var(--font-chinese);
+      font-style: normal;
+      color: var(--gold-dark);
+      font-weight: 300;
+    }
+    .section-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--warm-gray);
+      line-height: 1.9;
+    }
+
+    /* ===== TABS ===== */
+    .product-section {
+      padding: clamp(60px, 8vw, 120px) 0;
+      background: var(--white);
+    }
+    .tabs-header {
+      text-align: center;
+      margin-bottom: clamp(40px, 5vw, 60px);
+    }
+    .tab-nav {
+      display: inline-flex;
+      gap: 0;
+      border: 1px solid var(--cream);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 24px;
+    }
+    .tab-btn {
+      padding: 14px 36px;
+      background: var(--snow);
+      border: none;
+      font-family: var(--font-chinese);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--warm-gray);
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      letter-spacing: 1px;
+    }
+    .tab-btn:hover { color: var(--ink); }
+    .tab-btn.active {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* ===== PRODUCT GRID ===== */
+    .product-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(16px, 2vw, 24px);
+    }
+    .product-card {
+      background: var(--snow);
+      border: 1px solid var(--cream);
+      overflow: hidden;
+      transition: all 0.4s var(--ease);
+      position: relative;
+    }
+    .product-card:hover {
+      border-color: var(--gold-light);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+      transform: translateY(-4px);
+    }
+    .product-card--hero {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .product-img-wrap {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .product-card--hero .product-img-wrap {
+      aspect-ratio: auto;
+      min-height: 360px;
+      height: 100%;
+    }
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.05); }
+    .product-series-label {
+      position: absolute;
+      top: 12px; left: 12px;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: rgba(28,26,24,0.6);
+      color: var(--white);
+      padding: 5px 12px;
+      backdrop-filter: blur(8px);
+    }
+    .product-body {
+      padding: 20px 24px 24px;
+    }
+    .product-card--hero .product-body {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(28,26,24,0.85) 0%, transparent 100%);
+      color: var(--white);
+      padding: 36px 28px 24px;
+    }
+    .product-card--hero .product-name { color: var(--white); }
+    .product-card--hero .product-desc { color: rgba(255,255,255,0.7); }
+    .product-card--hero .product-tag { color: var(--gold-light); }
+    .product-tag {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+    .product-name {
+      font-family: var(--font-chinese);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .product-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+    @media (max-width: 1024px) {
+      .product-list { grid-template-columns: repeat(2, 1fr); }
+      .product-card--hero { grid-column: span 2; grid-row: span 1; }
+      .product-card--hero .product-img-wrap { min-height: 280px; }
+    }
+    @media (max-width: 768px) {
+      .product-list { grid-template-columns: 1fr; }
+      .product-card--hero { grid-column: span 1; }
+    }
+
+    /* ===== PRODUCT DETAIL MODAL ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(28,26,24,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 40px 20px;
+    }
+    .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+    .modal {
+      background: var(--white);
+      max-width: 900px;
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      animation: modalIn 0.35s var(--ease);
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 40px; height: 40px;
+      background: rgba(28,26,24,0.7);
+      border: none;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+    .modal-close:hover { background: var(--gold-dark); }
+    .modal-hero {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .modal-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .modal-body {
+      padding: clamp(24px, 4vw, 48px);
+    }
+    .modal-body .product-tag { margin-bottom: 12px; }
+    .modal-body .product-name {
+      font-size: clamp(22px, 3vw, 32px);
+      margin-bottom: 16px;
+    }
+    .modal-body .product-desc {
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+    .modal-specs {
+      background: var(--snow);
+      border: 1px solid var(--cream);
+      padding: 24px;
+      border-radius: 4px;
+    }
+    .modal-specs h4 {
+      font-family: var(--font-chinese);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .modal-specs ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .modal-specs li {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--charcoal);
+      padding-left: 20px;
+      position: relative;
+    }
+    .modal-specs li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* ===== CTA ===== */
+    .btn-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 40px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.35s var(--ease);
+    }
+    .btn-solid:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: clamp(48px, 6vw, 80px) 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+      gap: clamp(24px, 4vw, 48px);
+      margin-bottom: 48px;
+    }
+    .footer-heading {
+      font-family: var(--font-chinese);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .footer-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.8;
+      margin-top: 14px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy, .footer-icp {
+      font-size: 12px;
+      font-weight: 300;
+    }
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+    .reveal-d4 { transition-delay: 0.32s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ===== NO-IMAGE PLACEHOLDER ===== */
+    .img-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--warm-gray);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="top">
+  <div class="nav-inner">
+    <a href="index_v2.html" class="nav-logo">
+      <div class="nav-logo-main">皇雅系统门窗</div>
+      <div class="nav-logo-sub">源自佛山 · 始于匠心</div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">关于</a></li>
+      <li><a href="products.html">产品</a></li>
+      <li><a href="cases.html">案例</a></li>
+      <li><a href="videos.html">视频</a></li>
+      <li><a href="index_v2.html#advantages">优势</a></li>
+      <li><a href="index_v2.html#process">历程</a></li>
+      <li><a href="index_v2.html#contact">联系</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index_v2.html#contact" class="nav-cta">预约咨询</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="section-overline">Product Center</div>
+    <h1>产品<em>中心</em></h1>
+    <p>从系统平开窗到阳光房，全品类高端门窗解决方案</p>
+  </div>
+</section>
+
+<!-- PRODUCT SECTION -->
+<section class="product-section" id="products">
+  <div class="container">
+    <div class="tabs-header reveal">
+      <div class="section-overline">All Products</div>
+      <h2 class="section-title">全部<em>产品</em></h2>
+      <p class="section-desc">德系工艺标准，每一款产品都是品质与美学的完美结合</p>
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="tab-windows">平开系统窗</button>
+        <button class="tab-btn" data-tab="tab-sliding">推拉系统·阳光房</button>
+      </div>
+    </div>
+
+    <!-- TAB 1: 平开系统窗 -->
+    <div class="tab-panel active" id="tab-windows">
+      <div class="product-list">
+        <div class="product-card product-card--hero reveal" data-product="110c">
+          <div class="product-img-wrap">
+            <img src="products_images/product_110c.jpg" alt="110C断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">旗舰系列</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">110C 断桥平开窗系统</h3>
+            <p class="product-desc">超宽多腔体隔热系统，极窄框扇设计，鸭嘴密封条，隔音隔热性能卓越</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d1" data-product="76">
+          <div class="product-img-wrap">
+            <img src="products_images/product_76.jpg" alt="76断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">经典系列</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">76 断桥平开窗系统</h3>
+            <p class="product-desc">胶条密封结构，开启位多道胶条密封，隐藏式排水设计</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d2" data-product="123w">
+          <div class="product-img-wrap">
+            <img src="products_images/product_123w.jpg" alt="123W断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">高端系列</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">123W 断桥平开窗系统</h3>
+            <p class="product-desc">隔热条完全对齐，免打胶胶条工艺（EPDM+EPDM发泡复合软硬共挤）</p>
+          </div>
+        </div>
+        <div class="product-card reveal" data-product="135w">
+          <div class="product-img-wrap">
+            <img src="products_images/product_135w.jpg" alt="135W断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">旗舰系列</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">135W 断桥平开窗系统</h3>
+            <p class="product-desc">幕墙压线/斜压线可选，内外压胶条免打胶，隐藏式排水，密闭腔体注胶角码工艺</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d1" data-product="120c">
+          <div class="product-img-wrap">
+            <img src="products_images/product_120c.jpg" alt="120C断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">经典系列</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">120C 断桥平开窗系统</h3>
+            <p class="product-desc">隐藏式排水设计，内外平框，带防护栏平开窗</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d2" data-product="113w">
+          <div class="product-img-wrap">
+            <img src="products_images/product_113w.jpg" alt="113W断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">高端系列</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">113W 断桥平开窗系统</h3>
+            <p class="product-desc">免打胶EPDM胶条密封，三道密封设计</p>
+          </div>
+        </div>
+        <div class="product-card reveal" data-product="125h">
+          <div class="product-img-wrap">
+            <img src="products_images/product_125h.jpg" alt="125H断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">高端系列</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">125H 断桥平开窗系统</h3>
+            <p class="product-desc">隔热条完全对齐，框14mm宽槽口+扇20C槽设计</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d1" data-product="8596">
+          <div class="product-img-wrap">
+            <img src="products_images/product_8596.jpg" alt="85-96断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">免打胶</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">85-96 断桥平开窗系统</h3>
+            <p class="product-desc">免打胶工艺+撞色压线，开启位带防护栏</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d2" data-product="96l">
+          <div class="product-img-wrap">
+            <img src="products_images/product_96l.jpg" alt="96L断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">经典系列</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">96L 断桥平开窗系统</h3>
+            <p class="product-desc">经典断桥平开结构，多道密封，隐藏式排水</p>
+          </div>
+        </div>
+        <div class="product-card reveal" data-product="96l-screen">
+          <div class="product-img-wrap">
+            <img src="products_images/product_96l_screen.jpg" alt="96L微通风窗纱一体" loading="lazy">
+          </div>
+          <span class="product-series-label">微通风</span>
+          <div class="product-body">
+            <div class="product-tag">窗纱一体</div>
+            <h3 class="product-name">96L 微通风窗纱一体</h3>
+            <p class="product-desc">微通风设计，窗纱一体，防蚊防虫透气</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d1" data-product="115l">
+          <div class="product-img-wrap">
+            <img src="products_images/product_115l.jpg" alt="115L断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">高端系列</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">115L 断桥平开窗系统</h3>
+            <p class="product-desc">隔热条对齐设计，三道密封</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d2" data-product="120zw">
+          <div class="product-img-wrap">
+            <img src="products_images/product_120zw.jpg" alt="120ZW断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">创新系列</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">120ZW 断桥平开窗系统</h3>
+            <p class="product-desc">分体式设计，内装玻璃更安全</p>
+          </div>
+        </div>
+        <div class="product-card reveal" data-product="145">
+          <div class="product-img-wrap">
+            <img src="products_images/product_145.jpg" alt="145幕墙窗平推窗" loading="lazy">
+          </div>
+          <span class="product-series-label">幕墙系列</span>
+          <div class="product-body">
+            <div class="product-tag">幕墙平推窗</div>
+            <h3 class="product-name">145 幕墙窗平推窗</h3>
+            <p class="product-desc">隐藏排水，框14mm宽槽口+扇20C槽设计，五金通用性强</p>
+          </div>
+        </div>
+        <!-- Page 2 extra products -->
+        <div class="product-card reveal reveal-d1" data-product="115h">
+          <div class="product-img-wrap">
+            <img src="products_images/product_108.jpg" alt="115H断桥平开窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">大内倒</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">115H 断桥平开窗系统</h3>
+            <p class="product-desc">大内倒+玻璃护栏，免打胶工艺+撞色压线</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d2" data-product="135w-nd">
+          <div class="product-img-wrap">
+            <img src="products_images/product_112.jpg" alt="135W断桥平开窗系统（大内倒）" loading="lazy">
+          </div>
+          <span class="product-series-label">大内倒</span>
+          <div class="product-body">
+            <div class="product-tag">平开系统窗</div>
+            <h3 class="product-name">135W 断桥平开窗系统</h3>
+            <p class="product-desc">大内倒+玻璃护栏，免打胶工艺+撞色压线</p>
+          </div>
+        </div>
+        <div class="product-card reveal" data-product="145-mq">
+          <div class="product-img-wrap">
+            <img src="products_images/product_114.jpg" alt="145幕墙窗（大内倒）" loading="lazy">
+          </div>
+          <span class="product-series-label">大内倒</span>
+          <div class="product-body">
+            <div class="product-tag">幕墙窗</div>
+            <h3 class="product-name">145 幕墙窗</h3>
+            <p class="product-desc">大内倒+玻璃护栏，免打胶工艺+撞色压线</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: 推拉系统·阳光房 -->
+    <div class="tab-panel" id="tab-sliding">
+      <div class="product-list">
+        <div class="product-card product-card--hero reveal" data-product="128190">
+          <div class="product-img-wrap">
+            <img src="products_images/product_128190.jpg" alt="128-190推拉门" loading="lazy">
+          </div>
+          <span class="product-series-label">旗舰系列</span>
+          <div class="product-body">
+            <div class="product-tag">推拉门</div>
+            <h3 class="product-name">128-190 推拉门</h3>
+            <p class="product-desc">防水下轨阶梯式隐藏排水+不锈钢轨，多层硅化毛条，等压腔原理设计</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d1" data-product="82121">
+          <div class="product-img-wrap">
+            <img src="products_images/product_82121.jpg" alt="82-121断桥推拉窗系统" loading="lazy">
+          </div>
+          <span class="product-series-label">经典系列</span>
+          <div class="product-body">
+            <div class="product-tag">推拉窗</div>
+            <h3 class="product-name">82-121 断桥推拉窗系统</h3>
+            <p class="product-desc">阶梯式隐藏排水+不锈钢轨+双重挡边，承重150kg优质滑轮</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d2" data-product="155">
+          <div class="product-img-wrap">
+            <img src="products_images/product_155.jpg" alt="155提升宽窄配重型门" loading="lazy">
+          </div>
+          <span class="product-series-label">高端系列</span>
+          <div class="product-body">
+            <div class="product-tag">提升推拉门</div>
+            <h3 class="product-name">155 提升宽窄配重型门</h3>
+            <p class="product-desc">可做提升推拉门或常规推拉门，暗排水下轨，可选电动推拉/电控中空百叶玻璃</p>
+          </div>
+        </div>
+        <div class="product-card reveal" data-product="125sunroom">
+          <div class="product-img-wrap">
+            <img src="products_images/product_125sunroom.jpg" alt="125阳光房" loading="lazy">
+          </div>
+          <span class="product-series-label">阳光房</span>
+          <div class="product-body">
+            <div class="product-tag">阳光房</div>
+            <h3 class="product-name">125 阳光房</h3>
+            <p class="product-desc">主梁、次梁设有LED灯带槽，高强度铝合金骨架</p>
+          </div>
+        </div>
+        <div class="product-card reveal reveal-d1" data-product="80fold">
+          <div class="product-img-wrap">
+            <img src="products_images/product_80fold.jpg" alt="80折叠门" loading="lazy">
+          </div>
+          <span class="product-series-label">折叠门</span>
+          <div class="product-body">
+            <div class="product-tag">折叠门</div>
+            <h3 class="product-name">80 折叠门</h3>
+            <p class="product-desc">90度型材拼接+45度注胶组角，自动锁，隐藏铰链设计</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-hero">
+      <img id="modalImg" src="" alt="">
+    </div>
+    <div class="modal-body">
+      <div class="product-tag" id="modalTag"></div>
+      <h2 class="product-name" id="modalName"></h2>
+      <p class="product-desc" id="modalDesc"></p>
+      <div class="modal-specs" id="modalSpecs">
+        <h4>产品规格</h4>
+        <ul id="modalSpecList"></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="about-cta" style="padding: clamp(80px,10vw,140px) 0; background: var(--snow); text-align: center;">
+  <div class="container reveal">
+    <div class="section-overline">Get In Touch</div>
+    <h2 class="section-title">开启您的<em>品质生活之旅</em></h2>
+    <p class="section-desc" style="margin: 0 auto 32px;">预约免费上门测量，西安工厂直供，专业顾问为您量身定制专属方案</p>
+    <a href="tel:15319992005" class="btn-solid">
+      立即拨打 15319992005
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="nav-logo-main" style="color: var(--white); font-size: 20px;">皇雅系统门窗</div>
+        <div class="nav-logo-sub" style="color: rgba(255,255,255,0.3); margin-top: 4px;">做没有中间商赚差价的系统好门窗</div>
+        <p class="footer-desc">皇亚铝业科技有限公司旗下品牌，西安工厂坐落于灞桥区秦汉大道2699号，服务西北区域客户。</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">产品中心</h4>
+        <ul class="footer-links">
+          <li><a href="products.html#tab-windows">平开系统窗</a></li>
+          <li><a href="products.html#tab-sliding">推拉系统·阳光房</a></li>
+          <li><a href="about.html#honors">荣誉资质</a></li>
+          <li><a href="about.html#timeline">发展历程</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">关于皇雅</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">品牌故事</a></li>
+          <li><a href="about.html#xian-factory">西安工厂</a></li>
+          <li><a href="about.html#honors">荣誉资质</a></li>
+          <li><a href="about.html#timeline">发展历程</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">案例鉴赏</h4>
+        <ul class="footer-links">
+          <li><a href="cases.html">全部案例</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">视频展示</h4>
+        <ul class="footer-links">
+          <li><a href="videos.html">全部视频</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">联系我们</h4>
+        <ul class="footer-links">
+          <li><a href="tel:15319992005">15319992005</a></li>
+          <li><a href="mailto:info@huangyamc.com">info@huangyamc.com</a></li>
+          <li><a href="#">陕西省西安市桥区新合街道秦汉大道2699号</a></li>
+          <li><a href="https://www.huangyamc.com" target="_blank">www.huangyamc.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 皇亚铝业科技有限公司·西安工厂 版权所有</p>
+      <p class="footer-icp">陕西省西安市灞桥区新合街道秦汉大道2699号</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===== PRODUCT DATA =====
+  var PRODUCTS = {
+    // --- 平开系统窗 ---
+    '110c': {
+      tag: '平开系统窗',
+      name: '110C 断桥平开窗系统',
+      desc: '采用超宽多腔体隔热系统，极窄框扇设计，鸭嘴密封条，隔音隔热性能卓越。适用于高端住宅与商业空间，为用户提供极致的舒适体验。',
+      specs: [
+        '超宽多腔体隔热条设计，显著提升保温性能',
+        '极窄框扇外观，视野更开阔',
+        '鸭嘴型密封条，多道密封结构',
+        '隐藏式排水设计，利用水压顺畅排水',
+        'EPDM胶条密封，耐候性极佳',
+        '适配多种进口五金系统'
+      ]
+    },
+    '76': {
+      tag: '平开系统窗',
+      name: '76 断桥平开窗系统',
+      desc: '经典断桥平开结构，胶条密封结构设计，开启位多道胶条密封，隐藏式排水设计，性价比之选。',
+      specs: [
+        '76mm框体宽度，经典断桥结构',
+        '胶条密封结构，多道密封',
+        '隐藏式排水设计',
+        '适配常规五金配置',
+        '经济实用，适合各类住宅'
+      ]
+    },
+    '123w': {
+      tag: '平开系统窗',
+      name: '123W 断桥平开窗系统',
+      desc: '隔热条完全对齐设计，免打胶胶条工艺（EPDM+EPDM发泡复合软硬共挤），密封性能卓越，工艺精湛。',
+      specs: [
+        '隔热条完全对齐，等温线设计',
+        '免打胶EPDM胶条工艺',
+        'EPDM+EPDM发泡复合软硬共挤',
+        '多道密封结构',
+        '隐藏式排水',
+        '高端住宅首选'
+      ]
+    },
+    '135w': {
+      tag: '平开系统窗',
+      name: '135W 断桥平开窗系统',
+      desc: '幕墙压线/斜压线可选，内外压胶条免打胶，隐藏式排水，密闭腔体注胶角码工艺，旗舰级产品。',
+      specs: [
+        '幕墙压线/斜压线双模式可选',
+        '内外压胶条，免打胶工艺',
+        '隐藏式排水系统',
+        '密闭腔体注胶角码工艺',
+        '隔热条对齐设计',
+        '旗舰级产品，性能卓越'
+      ]
+    },
+    '120c': {
+      tag: '平开系统窗',
+      name: '120C 断桥平开窗系统',
+      desc: '隐藏式排水设计，内外平框外观，带防护栏平开窗，安全可靠，美观实用。',
+      specs: [
+        '隐藏式排水，美观实用',
+        '内外平框设计',
+        '开启位带防护栏',
+        '多道密封结构',
+        '安全可靠'
+      ]
+    },
+    '113w': {
+      tag: '平开系统窗',
+      name: '113W 断桥平开窗系统',
+      desc: '免打胶EPDM胶条密封，三道密封设计，结构紧凑，性能优异。',
+      specs: [
+        '免打胶EPDM胶条密封',
+        '三道密封设计',
+        '结构紧凑',
+        '隔热性能优异',
+        '适配多种五金系统'
+      ]
+    },
+    '125h': {
+      tag: '平开系统窗',
+      name: '125H 断桥平开窗系统',
+      desc: '隔热条完全对齐，框14mm宽槽口+扇20C槽设计，五金通用性强，装配灵活。',
+      specs: [
+        '隔热条完全对齐设计',
+        '框14mm宽槽口',
+        '扇20C槽设计',
+        '五金通用性强',
+        '装配灵活，维护方便'
+      ]
+    },
+    '8596': {
+      tag: '平开系统窗',
+      name: '85-96 断桥平开窗系统',
+      desc: '免打胶工艺+撞色压线设计，开启位带防护栏，时尚美观，安全实用。',
+      specs: [
+        '免打胶工艺',
+        '撞色压线设计，时尚美观',
+        '开启位带防护栏',
+        '多道密封',
+        '隐藏式排水'
+      ]
+    },
+    '96l': {
+      tag: '平开系统窗',
+      name: '96L 断桥平开窗系统',
+      desc: '经典断桥平开结构，多道密封，隐藏式排水，经济实用的品质之选。',
+      specs: [
+        '96mm框体宽度',
+        '经典断桥结构',
+        '多道密封设计',
+        '隐藏式排水',
+        '经济实用'
+      ]
+    },
+    '96l-screen': {
+      tag: '窗纱一体',
+      name: '96L 微通风窗纱一体',
+      desc: '微通风设计，窗纱一体，防蚊防虫透气，适合夏季通风需求。',
+      specs: [
+        '微通风设计',
+        '窗纱一体结构',
+        '防蚊防虫',
+        '透气通风',
+        '隐藏式排水'
+      ]
+    },
+    '115l': {
+      tag: '平开系统窗',
+      name: '115L 断桥平开窗系统',
+      desc: '隔热条对齐设计，三道密封，结构稳固，性能可靠。',
+      specs: [
+        '隔热条对齐设计',
+        '三道密封',
+        '结构稳固',
+        '多道排水',
+        '适配多种五金'
+      ]
+    },
+    '120zw': {
+      tag: '平开系统窗',
+      name: '120ZW 断桥平开窗系统',
+      desc: '分体式设计，内装玻璃更安全，安装维护方便。',
+      specs: [
+        '分体式设计',
+        '内装玻璃，安全便捷',
+        '多道密封',
+        '隐藏式排水',
+        '安装维护方便'
+      ]
+    },
+    '145': {
+      tag: '幕墙平推窗',
+      name: '145 幕墙窗平推窗',
+      desc: '隐藏排水，框14mm宽槽口+扇20C槽设计，五金通用性强，适用于大面积幕墙系统。',
+      specs: [
+        '隐藏排水设计',
+        '框14mm宽槽口',
+        '扇20C槽设计',
+        '五金通用性强',
+        '适用于大面积幕墙',
+        '平推开启方式'
+      ]
+    },
+    '115h': {
+      tag: '平开系统窗',
+      name: '115H 断桥平开窗系统',
+      desc: '大内倒+玻璃护栏，免打胶工艺+撞色压线设计，安全美观，工艺精湛。',
+      specs: [
+        '大内倒开启方式',
+        '玻璃护栏设计，安全可靠',
+        '免打胶工艺',
+        '撞色压线，时尚美观',
+        '多道密封结构',
+        '隐藏式排水'
+      ]
+    },
+    '135w-nd': {
+      tag: '平开系统窗',
+      name: '135W 断桥平开窗系统（大内倒）',
+      desc: '大内倒+玻璃护栏，免打胶工艺+撞色压线，旗舰级内倒窗系统。',
+      specs: [
+        '大内倒开启方式',
+        '玻璃护栏设计',
+        '免打胶EPDM胶条工艺',
+        '撞色压线设计',
+        '幕墙压线/斜压线可选',
+        '密闭腔体注胶角码工艺'
+      ]
+    },
+    '145-mq': {
+      tag: '幕墙窗',
+      name: '145 幕墙窗（大内倒）',
+      desc: '大内倒+玻璃护栏，免打胶工艺+撞色压线，适用于大面积幕墙系统。',
+      specs: [
+        '大内倒开启方式',
+        '玻璃护栏设计',
+        '隐藏排水',
+        '框14mm宽槽口',
+        '免打胶工艺',
+        '适用于大面积幕墙'
+      ]
+    },
+    // --- 推拉系统·阳光房 ---
+    '128190': {
+      tag: '推拉门',
+      name: '128-190 推拉门',
+      desc: '防水下轨阶梯式隐藏排水+不锈钢轨，多层硅化毛条，等压腔原理设计，高端推拉门系统。',
+      specs: [
+        '防水下轨阶梯式隐藏排水',
+        '不锈钢轨道',
+        '多层硅化毛条密封',
+        '等压腔原理设计',
+        '防虫防尘防水',
+        '高端住宅/商业空间适用'
+      ]
+    },
+    '82121': {
+      tag: '推拉窗',
+      name: '82-121 断桥推拉窗系统',
+      desc: '阶梯式隐藏排水+不锈钢轨+双重挡边，承重150kg优质滑轮，推拉顺畅。',
+      specs: [
+        '阶梯式隐藏排水',
+        '不锈钢轨道',
+        '双重挡边设计',
+        '承重150kg优质滑轮',
+        '推拉顺畅静音',
+        '断桥隔热设计'
+      ]
+    },
+    '155': {
+      tag: '提升推拉门',
+      name: '155 提升宽窄配重型门',
+      desc: '可做提升推拉门或常规推拉门，暗排水下轨，可选电动推拉/电控中空百叶玻璃，功能丰富。',
+      specs: [
+        '提升推拉/常规推拉双模式',
+        '暗排水下轨设计',
+        '可选电动推拉',
+        '可选电控中空百叶玻璃',
+        '宽窄配设计',
+        '重型门结构，安全可靠'
+      ]
+    },
+    '125sunroom': {
+      tag: '阳光房',
+      name: '125 阳光房',
+      desc: '主梁、次梁设有LED灯带槽，高强度铝合金骨架，隔热防爆玻璃，打造完美休闲空间。',
+      specs: [
+        '主梁、次梁LED灯带槽',
+        '高强度铝合金骨架',
+        '隔热防爆玻璃',
+        '专业排水系统',
+        '定制化设计',
+        '适用别墅/露台/庭院'
+      ]
+    },
+    '80fold': {
+      tag: '折叠门',
+      name: '80 折叠门',
+      desc: '90度型材拼接+45度注胶组角，自动锁，隐藏铰链设计，开启空间最大化。',
+      specs: [
+        '90度型材拼接',
+        '45度注胶组角工艺',
+        '自动锁设计',
+        '隐藏铰链',
+        '开启空间最大化',
+        '适用于室内外隔断'
+      ]
+    }
+  };
+
+  // ===== SCROLL REVEAL =====
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    reveals.forEach(function(el) { observer.observe(el); });
+  } else {
+    reveals.forEach(function(el) { el.classList.add('visible'); });
+  }
+
+  // ===== NAV =====
+  var nav = document.querySelector('.nav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('nav--solid', window.scrollY > 60);
+  }, { passive: true });
+
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+      });
+    });
+  }
+  // Close menu when clicking anywhere outside nav
+  document.addEventListener('click', function(e) {
+    var nav = document.getElementById('top');
+    if (nav && !nav.contains(e.target)) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+    }
+  });
+
+  // ===== TAB SWITCHING =====
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var tabId = this.getAttribute('data-tab');
+      tabBtns.forEach(function(b) { b.classList.remove('active'); });
+      tabPanels.forEach(function(p) { p.classList.remove('active'); });
+      this.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+
+      // Re-observe reveals in the newly shown panel
+      var newReveals = document.getElementById(tabId).querySelectorAll('.reveal:not(.visible)');
+      newReveals.forEach(function(el) { observer.observe(el); });
+    });
+  });
+
+  // ===== HASH-BASED TAB SELECTION =====
+  (function() {
+    var hash = window.location.hash;
+    if (hash === '#tab-sliding') {
+      document.querySelector('[data-tab="tab-sliding"]').click();
+    }
+  })();
+
+  // ===== PRODUCT MODAL =====
+  var modal = document.getElementById('productModal');
+  var modalClose = document.getElementById('modalClose');
+  var modalImg = document.getElementById('modalImg');
+  var modalTag = document.getElementById('modalTag');
+  var modalName = document.getElementById('modalName');
+  var modalDesc = document.getElementById('modalDesc');
+  var modalSpecList = document.getElementById('modalSpecList');
+
+  document.querySelectorAll('.product-card').forEach(function(card) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function() {
+      var key = this.getAttribute('data-product');
+      var p = PRODUCTS[key];
+      if (!p) return;
+      modalTag.textContent = p.tag;
+      modalName.textContent = p.name;
+      modalDesc.textContent = p.desc;
+      modalSpecList.innerHTML = '';
+      p.specs.forEach(function(s) {
+        var li = document.createElement('li');
+        li.textContent = s;
+        modalSpecList.appendChild(li);
+      });
+      // Try to set image from card
+      var cardImg = this.querySelector('.product-img-wrap img');
+      if (cardImg) modalImg.src = cardImg.src;
+      modalImg.alt = p.name;
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+</script>
+
+</body>
+</html>
