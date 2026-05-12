@@ -1,27 +1,27 @@
-import nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer'
 
 export const config = {
-  runtime: 'nodejs20.x',
-};
+  runtime: 'nodejs'
+}
 
 export default async function handler(req, res) {
   // CORS
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
 
   if (req.method === 'OPTIONS') {
-    return res.status(200).end();
+    return res.status(200).end()
   }
 
   if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, message: 'Method not allowed' });
+    return res.status(405).json({ success: false, message: 'Method not allowed' })
   }
 
-  const { name, phone, city, type, notes, timestamp } = req.body;
+  const { name, phone, city, type, notes, timestamp } = req.body
 
   if (!name || !phone) {
-    return res.status(400).json({ success: false, message: '请填写必填字段' });
+    return res.status(400).json({ success: false, message: '请填写必填字段' })
   }
 
   const transporter = nodemailer.createTransport({
@@ -30,11 +30,11 @@ export default async function handler(req, res) {
     secure: true,
     auth: {
       user: process.env.SMTP_USER || 'vip@snhanyue.com',
-      pass: process.env.SMTP_PASS || 'Xl210123',
-    },
-  });
+      pass: process.env.SMTP_PASS || 'Xl210123'
+    }
+  })
 
-  const subject = `【皇雅官网咨询】${name} - ${phone}`;
+  const subject = `【皇雅官网咨询】${name} - ${phone}`
 
   const htmlBody = `<!DOCTYPE html>
 <html><head><meta charset="utf-8"></head>
@@ -56,19 +56,19 @@ export default async function handler(req, res) {
   <div style="padding:16px 30px;background:#fafaf8;border-top:1px solid #eee;font-size:12px;color:#999;">
     提交时间：${timestamp || ''} &nbsp;|&nbsp; 来源：皇雅官网
   </div>
-</div></body></html>`;
+</div></body></html>`
 
   try {
     await transporter.sendMail({
       from: `"皇雅官网" <vip@snhanyue.com>`,
       to: process.env.MAIL_TO || 'huilong@snhanyue.com',
       subject,
-      html: htmlBody,
-    });
+      html: htmlBody
+    })
 
-    return res.status(200).json({ success: true, message: '提交成功' });
+    return res.status(200).json({ success: true, message: '提交成功' })
   } catch (err) {
-    console.error('Email send error:', err.message);
-    return res.status(500).json({ success: false, message: '邮件发送失败' });
+    console.error('Email send error:', err.message)
+    return res.status(500).json({ success: false, message: '邮件发送失败' })
   }
 }
