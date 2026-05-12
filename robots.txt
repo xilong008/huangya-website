@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.huangyamc.com/sitemap.xml
+
+# Disallow utility files
+Disallow: /api/
+Disallow: /logs/
+Disallow: /.vercel/
+Disallow: /.claude/
+Disallow: /.agents/
+Disallow: /huangya-window-anim/
+Disallow: /huangya-website/
+Disallow: /products_images/
+Disallow: /case_images/
+Disallow: /资质文件/
+Disallow: /skills-lock.json
+Disallow: /window_test.html
+Disallow: /pretext.js
+Disallow: /index_v2.html
+Disallow: /product-showcase-v1.html
