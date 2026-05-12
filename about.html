@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于皇雅 — 皇雅系统门窗西安工厂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --snow: #F8F7F4;
+      --cream: #EDEAE2;
+      --sand: #D9D2C4;
+      --warm-gray: #8A8278;
+      --charcoal: #3A3632;
+      --ink: #1C1A18;
+      --gold: #C4A67A;
+      --gold-light: #D4BC98;
+      --gold-dark: #A88B60;
+
+      --font-display: 'DM Serif Display', 'Noto Serif SC', serif;
+      --font-body: 'Noto Sans SC', sans-serif;
+      --font-chinese: 'Noto Serif SC', serif;
+
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--snow);
+      color: var(--ink);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 60px);
+    }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 clamp(20px, 4vw, 60px);
+      transition: all 0.4s var(--ease);
+    }
+    .nav--solid {
+      background: rgba(248, 247, 244, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    .nav-inner {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo-main {
+      font-family: var(--font-chinese);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: 2px;
+    }
+    .nav-logo-sub {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 400;
+      color: var(--warm-gray);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      color: var(--warm-gray);
+      transition: color 0.3s;
+      position: relative;
+      text-decoration: none;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold-dark);
+      transition: width 0.3s var(--ease);
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      padding: 10px 28px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s var(--ease);
+    }
+    .nav-cta:hover { background: var(--gold-dark); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none; border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--ink);
+      transition: all 0.3s;
+    }
+    .nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translateY(6px); }
+    .nav-hamburger.active span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translateY(-6px); }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-cta { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px; left: 0; right: 0;
+        background: var(--snow);
+        padding: 32px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+      }
+    }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      min-height: 60vh;
+      min-height: 60dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 72px;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--snow) 0%, var(--cream) 100%);
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    .page-hero .section-overline {
+      margin-bottom: 24px;
+    }
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .page-hero h1 em {
+      font-family: var(--font-chinese);
+      font-style: normal;
+      color: var(--gold-dark);
+      font-weight: 300;
+    }
+    .page-hero p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--warm-gray);
+      max-width: 500px;
+      line-height: 1.9;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    .section-overline {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.5vw, 48px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .section-title em {
+      font-family: var(--font-chinese);
+      font-style: normal;
+      color: var(--gold-dark);
+      font-weight: 300;
+    }
+    .section-desc {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--warm-gray);
+      line-height: 1.9;
+    }
+
+    /* ===== BRAND STORY ===== */
+    .brand-story {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--white);
+    }
+    .brand-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 5vw, 80px);
+      align-items: center;
+    }
+    .brand-story-text h3 {
+      font-family: var(--font-chinese);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 16px;
+    }
+    .brand-story-text p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 2;
+      margin-bottom: 20px;
+    }
+    .brand-story-quote {
+      padding: 24px 28px;
+      border-left: 3px solid var(--gold);
+      background: var(--snow);
+      font-family: var(--font-chinese);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.8;
+    }
+    .brand-story-image {
+      aspect-ratio: 4/5;
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .brand-story-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 1024px) {
+      .brand-story-grid { grid-template-columns: 1fr; }
+      .brand-story-image { aspect-ratio: 16/9; order: -1; }
+    }
+
+    /* ===== MISSION VALUES ===== */
+    .mission-values {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--snow);
+    }
+    .mission-header {
+      text-align: center;
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+    .mission-header .section-desc { margin: 0 auto; }
+    .mission-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(20px, 3vw, 40px);
+    }
+    .mission-card {
+      background: var(--white);
+      border: 1px solid var(--cream);
+      padding: clamp(32px, 4vw, 48px) 28px;
+      text-align: center;
+      transition: all 0.4s var(--ease);
+    }
+    .mission-card:hover {
+      border-color: var(--gold-light);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+    }
+    .mission-icon {
+      width: 64px; height: 64px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      color: var(--gold-dark);
+    }
+    .mission-card h3 {
+      font-family: var(--font-chinese);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .mission-card p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--warm-gray);
+      line-height: 1.8;
+    }
+
+    @media (max-width: 1024px) {
+      .mission-cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .mission-cards { grid-template-columns: 1fr; }
+    }
+
+    /* ===== COMPANY DATA ===== */
+    .company-data {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--ink);
+      color: var(--white);
+    }
+    .company-data .section-overline { color: var(--gold-light); }
+    .company-data .section-title { color: var(--white); }
+    .company-data .section-desc { color: rgba(255,255,255,0.5); }
+    .data-header {
+      text-align: center;
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+    .data-header .section-desc { margin: 0 auto; }
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .data-item {
+      text-align: center;
+      padding: 40px 20px;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .data-item:last-child { border-right: none; }
+    .data-value {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 52px);
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .data-label {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .data-grid { grid-template-columns: repeat(2, 1fr); }
+      .data-item { border-bottom: 1px solid rgba(255,255,255,0.08); }
+    }
+    @media (max-width: 768px) {
+      .data-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--white);
+    }
+    .timeline-header {
+      text-align: center;
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+    .timeline-header .section-desc { margin: 0 auto; }
+    .timeline-list {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline-list::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--cream);
+    }
+    .timeline-item {
+      display: flex;
+      gap: 32px;
+      padding: 24px 0;
+      position: relative;
+    }
+    .timeline-dot {
+      width: 48px; height: 48px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 14px;
+      color: var(--gold-dark);
+      flex-shrink: 0;
+      background: var(--white);
+      position: relative;
+      z-index: 2;
+    }
+    .timeline-content h4 {
+      font-family: var(--font-chinese);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .timeline-content p {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--warm-gray);
+      line-height: 1.8;
+    }
+
+    /* ===== HONORS ===== */
+    .honors {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--snow);
+    }
+    .honors-header {
+      text-align: center;
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+    .honors-header .section-desc { margin: 0 auto; }
+    .honors-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .honor-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px 28px;
+      background: var(--white);
+      border: 1px solid var(--cream);
+      transition: all 0.3s var(--ease);
+    }
+    .honor-item:hover {
+      border-color: var(--gold-light);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.04);
+    }
+    .honor-icon {
+      width: 48px; height: 48px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--white);
+    }
+    .honor-item h4 {
+      font-family: var(--font-chinese);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .honor-item p {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--warm-gray);
+    }
+
+    /* ===== HONOR WALL ===== */
+    .honor-wall {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--white);
+    }
+    .honor-wall-header {
+      text-align: center;
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+    .honor-wall-header .section-desc { margin: 0 auto; }
+    .honor-wall-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(12px, 2vw, 20px);
+    }
+    .honor-wall-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      border: 1px solid var(--cream);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.4s var(--ease);
+    }
+    .honor-wall-item:hover {
+      border-color: var(--gold-light);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+    .honor-wall-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+    .honor-wall-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ===== PATENT WALL ===== */
+    .patent-wall {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--snow);
+    }
+    .patent-wall-header {
+      text-align: center;
+      margin-bottom: clamp(48px, 6vw, 80px);
+    }
+    .patent-wall-header .section-desc { margin: 0 auto; }
+    .patent-wall-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(12px, 2vw, 20px);
+    }
+    .patent-wall-item {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      border: 1px solid var(--cream);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.4s var(--ease);
+    }
+    .patent-wall-item:hover {
+      border-color: var(--gold-light);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+    .patent-wall-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: var(--white);
+      transition: transform 0.6s var(--ease);
+    }
+    .patent-wall-item:hover img {
+      transform: scale(1.05);
+    }
+    .patent-wall-item .patent-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 10px 12px;
+      background: linear-gradient(to top, rgba(28,26,24,0.85), transparent);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 400;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 1024px) {
+      .honor-wall-grid, .patent-wall-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .honor-wall-grid { grid-template-columns: repeat(2, 1fr); }
+      .patent-wall-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ===== HONOR LIGHTBOX ===== */
+    .honor-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(28,26,24,0.92);
+      backdrop-filter: blur(8px);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    .honor-lightbox.open { display: flex; }
+    .honor-lightbox-close {
+      position: absolute;
+      top: 24px; right: 24px;
+      width: 48px; height: 48px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      border-radius: 50%;
+      color: var(--white);
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+      z-index: 10;
+    }
+    .honor-lightbox-close:hover { background: var(--gold-dark); }
+    .honor-lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+      animation: lbIn 0.35s var(--ease);
+    }
+    @keyframes lbIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* ===== XI'AN FACTORY ===== */
+    .xian-factory {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--white);
+    }
+    .factory-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 5vw, 80px);
+      align-items: start;
+    }
+    .factory-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .factory-info h3 {
+      font-family: var(--font-chinese);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .factory-info p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 2;
+      margin-bottom: 16px;
+    }
+    .factory-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .factory-detail-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .factory-detail-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gold-dark);
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+    .factory-detail-value {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+    .factory-detail-value a {
+      color: var(--gold-dark);
+      text-decoration: underline;
+    }
+    .factory-map {
+      aspect-ratio: 4/3;
+      background: var(--cream);
+      overflow: hidden;
+      border: 1px solid var(--cream);
+    }
+    .factory-map #amap-container {
+      width: 100%;
+      height: 100%;
+    }
+    .factory-map-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--warm-gray);
+      font-size: 14px;
+      gap: 12px;
+    }
+    .factory-map-loading .spinner {
+      width: 20px; height: 20px;
+      border: 2px solid var(--cream);
+      border-top-color: var(--gold-dark);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* QR code below map (desktop) */
+    .map-qr-area {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 16px;
+      background: var(--snow);
+      border: 1px solid var(--cream);
+      border-top: none;
+    }
+    .map-qr-area .qr-label {
+      font-size: 12px;
+      color: var(--warm-gray);
+      letter-spacing: 0.5px;
+    }
+    .map-qr-area img {
+      display: block;
+      width: 120px;
+      height: 120px;
+    }
+    .map-qr-area canvas {
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .map-qr-area { display: none; }
+    }
+
+    /* H5 navigation button below map */
+    .map-nav-btn {
+      display: none;
+      padding: 14px;
+      background: var(--ink);
+      color: var(--white);
+      text-align: center;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s;
+      margin-top: 12px;
+    }
+    .map-nav-btn:hover { background: var(--gold-dark); }
+    .map-nav-btn svg { vertical-align: middle; margin-right: 6px; }
+    @media (max-width: 768px) {
+      .map-nav-btn { display: block; }
+    }
+
+    @media (max-width: 1024px) {
+      .factory-grid { grid-template-columns: 1fr; }
+      .factory-map { aspect-ratio: 16/9; }
+    }
+
+    /* ===== CTA ===== */
+    .about-cta {
+      padding: clamp(80px, 10vw, 140px) 0;
+      background: var(--snow);
+      text-align: center;
+    }
+    .about-cta .section-desc {
+      margin: 0 auto 32px;
+    }
+    .btn-solid {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 40px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.35s var(--ease);
+    }
+    .btn-solid:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      padding: clamp(48px, 6vw, 80px) 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1fr;
+      gap: clamp(24px, 4vw, 48px);
+      margin-bottom: 48px;
+    }
+    .footer-heading {
+      font-family: var(--font-chinese);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+    .footer-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.8;
+      margin-top: 14px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links a {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy, .footer-icp {
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    @media (max-width: 1024px) {
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="top">
+  <div class="nav-inner">
+    <a href="index_v2.html" class="nav-logo">
+      <div class="nav-logo-main">皇雅系统门窗</div>
+      <div class="nav-logo-sub">源自佛山 · 始于匠心</div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">关于</a></li>
+      <li><a href="products.html">产品</a></li>
+      <li><a href="cases.html">案例</a></li>
+      <li><a href="videos.html">视频</a></li>
+      <li><a href="index_v2.html#advantages">优势</a></li>
+      <li><a href="index_v2.html#process">历程</a></li>
+      <li><a href="index_v2.html#contact">联系</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="index_v2.html#contact" class="nav-cta">预约咨询</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-content">
+    <div class="section-overline">About Huangya</div>
+    <h1>关于<em>皇雅</em></h1>
+    <p>打造中国人自己的家装门窗系统输出公司</p>
+  </div>
+</section>
+
+<!-- BRAND STORY -->
+<section class="brand-story">
+  <div class="container">
+    <div class="brand-story-grid">
+      <div class="brand-story-text reveal">
+        <div class="section-overline">Brand Story</div>
+        <h3>起源之路 —— 创始初衷，做行业先驱</h3>
+        <p>
+          张楚胜先生创立皇雅系统门窗的初衷是希望向欧洲学习到的先进理念和技术，学以致用，并且不断超越，来打造一个中国人自己的家装门窗系统输出公司。
+        </p>
+        <p>
+          希望皇雅能致力提升国人门窗标准，提升门窗的使用寿命。并通过模式的改变，打造出适宜的系统产品。
+        </p>
+        <div class="brand-story-quote">
+          "做没有中间商赚差价的系统好门窗"
+        </div>
+      </div>
+      <div class="brand-story-image reveal reveal-d2">
+        <img src="huangya-window-anim/public/misty_mountains_view_1778509083394.png" alt="皇雅品牌故事" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VALUES -->
+<section class="mission-values">
+  <div class="container">
+    <div class="mission-header reveal">
+      <div class="section-overline">Mission & Vision</div>
+      <h2 class="section-title">企业<em>使命与愿景</em></h2>
+      <p class="section-desc">通过共享、共赢、合作的模式，专心打造全国优质区域门窗工厂</p>
+    </div>
+    <div class="mission-cards">
+      <div class="mission-card reveal reveal-d1">
+        <div class="mission-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3>企业使命</h3>
+        <p>做没有中间商赚差价的系统好门窗，让每一位消费者都能享受到高品质的门窗产品与服务。</p>
+      </div>
+      <div class="mission-card reveal reveal-d2">
+        <div class="mission-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3>企业愿景</h3>
+        <p>打造中国人自己的家装门窗系统输出公司，通过模式创新，构建全国300+优质区域工厂网络。</p>
+      </div>
+      <div class="mission-card reveal reveal-d3">
+        <div class="mission-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3>核心价值观</h3>
+        <p>共享、共赢、合作。长期主义，专注于品质提升与行业推动，让好门窗走进千家万户。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY DATA -->
+<section class="company-data">
+  <div class="container">
+    <div class="data-header reveal">
+      <div class="section-overline">Company Strength</div>
+      <h2 class="section-title">企业<em>实力</em></h2>
+      <p class="section-desc">皇亚铝业科技有限公司，集设计、制造、销售、安装、售后服务为一体</p>
+    </div>
+    <div class="data-grid">
+      <div class="data-item reveal reveal-d1">
+        <div class="data-value">2019</div>
+        <div class="data-label">公司成立于<br>广东佛山南海</div>
+      </div>
+      <div class="data-item reveal reveal-d2">
+        <div class="data-value">5亿+</div>
+        <div class="data-label">年产值超<br>人民币</div>
+      </div>
+      <div class="data-item reveal reveal-d3">
+        <div class="data-value">17</div>
+        <div class="data-label">全国生产基地<br>覆盖区域</div>
+      </div>
+      <div class="data-item reveal">
+        <div class="data-value">300+</div>
+        <div class="data-label">全国优质区域<br>门窗工厂</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+  <div class="container">
+    <div class="timeline-header reveal">
+      <div class="section-overline">Development</div>
+      <h2 class="section-title">发展<em>历程</em></h2>
+      <p class="section-desc">从欧洲求学到行业引领，皇雅每一步都坚实有力</p>
+    </div>
+    <div class="timeline-list">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot">01</div>
+        <div class="timeline-content">
+          <h4>欧洲求学，技术积累</h4>
+          <p>张楚胜先生深入学习欧洲先进门窗理念与技术，为创立皇雅奠定基础。</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot">02</div>
+        <div class="timeline-content">
+          <h4>2019年 — 公司成立</h4>
+          <p>佛山市皇亚铝业科技有限公司正式成立，落户广东佛山南海，旗下品牌皇雅系统门窗正式启动。</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot">03</div>
+        <div class="timeline-content">
+          <h4>2021年 — 荣获"中国十大门窗品牌"</h4>
+          <p>皇雅门窗荣获"中国十大品牌"称号，同时荣获广东省门窗协会副会长单位，品牌实力获行业认可。</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot">04</div>
+        <div class="timeline-content">
+          <h4>2023年 — 年产值超5亿，17区域布局</h4>
+          <p>全国生产基地覆盖广东、河南、浙江等17个区域，年产值超5亿元，开启"小门窗"里的新智造之路。</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot">05</div>
+        <div class="timeline-content">
+          <h4>持续扩展 — 300+区域工厂</h4>
+          <p>通过共享、共赢、合作的模式，持续打造全国优质区域门窗工厂，布局不断扩展。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONOR WALL -->
+<section class="honor-wall">
+  <div class="container">
+    <div class="honor-wall-header reveal">
+      <div class="section-overline">Honors & Awards</div>
+      <h2 class="section-title">荣誉<em>墙</em></h2>
+      <p class="section-desc">每一份荣誉，都是对皇雅品质的认可与肯定</p>
+    </div>
+    <div class="honor-wall-grid">
+      <div class="honor-wall-item reveal" data-honor="0">
+        <img src="资质文件/荣誉牌匾(1)/1_1.JPG" alt="荣誉证书" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="1">
+        <img src="资质文件/荣誉牌匾(1)/1_2.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="2">
+        <img src="资质文件/荣誉牌匾(1)/1_3.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="3">
+        <img src="资质文件/荣誉牌匾(1)/1_4.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="4">
+        <img src="资质文件/荣誉牌匾(1)/1_5.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="5">
+        <img src="资质文件/荣誉牌匾(1)/1_6.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="6">
+        <img src="资质文件/荣誉牌匾(1)/1_7.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="7">
+        <img src="资质文件/荣誉牌匾(1)/1_8.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="8">
+        <img src="资质文件/荣誉牌匾(1)/1_9.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="9">
+        <img src="资质文件/荣誉牌匾(1)/1_10.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="10">
+        <img src="资质文件/荣誉牌匾(1)/1_11.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="11">
+        <img src="资质文件/荣誉牌匾(1)/1_12.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="12">
+        <img src="资质文件/荣誉牌匾(1)/1_13.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="13">
+        <img src="资质文件/荣誉牌匾(1)/1_14.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="14">
+        <img src="资质文件/荣誉牌匾(1)/1_15.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="15">
+        <img src="资质文件/荣誉牌匾(1)/1_16.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="16">
+        <img src="资质文件/荣誉牌匾(1)/2_1.JPG" alt="荣誉牌匾" loading="lazy">
+      </div>
+      <div class="honor-wall-item reveal" data-honor="17">
+        <img src="资质文件/荣誉牌匾(1)/优秀企业.png" alt="优秀企业" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATENT SHOWCASE -->
+<section class="patent-wall">
+  <div class="container">
+    <div class="patent-wall-header reveal">
+      <div class="section-overline">Patent Certificates</div>
+      <h2 class="section-title">专利<em>展示</em></h2>
+      <p class="section-desc">自主研发，技术创新，皇雅拥有多项国家专利</p>
+    </div>
+    <div class="patent-wall-grid">
+      <div class="patent-wall-item reveal" data-patent="0">
+        <img src="资质文件/专利证书(1)/一种全景推拉门窗-发明专利证书-20250909094632_00.jpg" alt="全景推拉门窗发明专利" loading="lazy">
+        <div class="patent-label">全景推拉门窗发明专利</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="1">
+        <img src="资质文件/专利证书(1)/一种内置五金外开窗结构.JPG" alt="内置五金外开窗结构" loading="lazy">
+        <div class="patent-label">内置五金外开窗结构</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="2">
+        <img src="资质文件/专利证书(1)/一种双排轮的推拉门.JPG" alt="双排轮推拉门" loading="lazy">
+        <div class="patent-label">双排轮推拉门</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="3">
+        <img src="资质文件/专利证书(1)/一种可快速拆装的小纱窗合页.JPG" alt="快速拆装小纱窗合页" loading="lazy">
+        <div class="patent-label">快速拆装小纱窗合页</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="4">
+        <img src="资质文件/专利证书(1)/一种安全逃生窗.JPG" alt="安全逃生窗" loading="lazy">
+        <div class="patent-label">安全逃生窗</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="5">
+        <img src="资质文件/专利证书(1)/一种安全逃生窗2.jpg" alt="安全逃生窗专利" loading="lazy">
+        <div class="patent-label">安全逃生窗专利</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="6">
+        <img src="资质文件/专利证书(1)/一种带可快速拆卸纱扇的内开窗.JPG" alt="带快速拆卸纱扇内开窗" loading="lazy">
+        <div class="patent-label">带快速拆卸纱扇内开窗</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="7">
+        <img src="资质文件/专利证书(1)/一种提升推拉门用的上封堵塑料件.JPG" alt="提升推拉门上封堵塑料件" loading="lazy">
+        <div class="patent-label">提升推拉门上封堵塑料件</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="8">
+        <img src="资质文件/专利证书(1)/一种提升推拉门的防风防块.JPG" alt="提升推拉门防风防块" loading="lazy">
+        <div class="patent-label">提升推拉门防风防块</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="9">
+        <img src="资质文件/专利证书(1)/一种暗排水双内开窗.JPG" alt="暗排水双内开窗" loading="lazy">
+        <div class="patent-label">暗排水双内开窗</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="10">
+        <img src="资质文件/专利证书(1)/一种暗排水的推拉窗.JPG" alt="暗排水推拉窗" loading="lazy">
+        <div class="patent-label">暗排水推拉窗</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="11">
+        <img src="资质文件/专利证书(1)/一种暗排水的推拉门.JPG" alt="暗排水推拉门" loading="lazy">
+        <div class="patent-label">暗排水推拉门</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="12">
+        <img src="资质文件/专利证书(1)/一种用于推拉门窗的封堵组件.jpg" alt="推拉门窗封堵组件" loading="lazy">
+        <div class="patent-label">推拉门窗封堵组件</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="13">
+        <img src="资质文件/专利证书(1)/一种窄边推拉门窗.jpg" alt="窄边推拉门窗" loading="lazy">
+        <div class="patent-label">窄边推拉门窗</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="14">
+        <img src="资质文件/专利证书(1)/一种阳光房主梁与次梁的快速拼装结构.JPG" alt="阳光房主梁次梁快速拼装" loading="lazy">
+        <div class="patent-label">阳光房主梁次梁快速拼装</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="15">
+        <img src="资质文件/专利证书(1)/一种齐平铝合金窗.JPG" alt="齐平铝合金窗" loading="lazy">
+        <div class="patent-label">齐平铝合金窗</div>
+      </div>
+      <div class="patent-wall-item reveal" data-patent="16">
+        <img src="资质文件/专利证书(1)/铝窗型材.JPG" alt="铝窗型材专利" loading="lazy">
+        <div class="patent-label">铝窗型材专利</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HONOR LIGHTBOX -->
+<div class="honor-lightbox" id="honorLightbox">
+  <button class="honor-lightbox-close" id="honorLightboxClose">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <img class="honor-lightbox-img" id="honorLightboxImg" src="" alt="">
+</div>
+
+<!-- XI'AN FACTORY -->
+<section class="xian-factory">
+  <div class="container">
+    <div class="factory-grid">
+      <div class="factory-info reveal">
+        <div class="section-overline">Xi'an Factory</div>
+        <h3>皇雅系统门窗 · <em>西安工厂</em></h3>
+        <p>
+          皇雅系统门窗西安工厂，坐落于陕西省西安市灞桥区，是皇亚铝业科技有限公司在西北地区的重要布局，服务于西北区域客户，工厂直供无中间商差价。
+        </p>
+        <div class="factory-detail">
+          <div class="factory-detail-item">
+            <span class="factory-detail-label">工厂地址</span>
+            <span class="factory-detail-value">陕西省西安市灞桥区新合街道秦汉大道2699号</span>
+          </div>
+          <div class="factory-detail-item">
+            <span class="factory-detail-label">联系电话</span>
+            <span class="factory-detail-value"><a href="tel:15319992005">15319992005</a></span>
+          </div>
+          <div class="factory-detail-item">
+            <span class="factory-detail-label">主营产品</span>
+            <span class="factory-detail-value">系统门窗、阳光房、断桥铝门窗</span>
+          </div>
+          <div class="factory-detail-item">
+            <span class="factory-detail-label">服务范围</span>
+            <span class="factory-detail-value">陕西省及周边西北区域</span>
+          </div>
+          <div class="factory-detail-item">
+            <span class="factory-detail-label">官方网站</span>
+            <span class="factory-detail-value"><a href="https://www.huangyamc.com" target="_blank">www.huangyamc.com</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="factory-right reveal reveal-d2">
+        <div class="factory-map">
+          <div id="amap-container">
+            <div class="factory-map-loading">
+              <div class="spinner"></div>
+              <span>地图加载中...</span>
+            </div>
+          </div>
+        </div>
+        <!-- Desktop: QR code below map -->
+        <div class="map-qr-area" id="mapQrArea">
+          <img id="mapQrImg" width="120" height="120" alt="扫码导航至高德地图" style="background: var(--cream); border-radius: 4px;">
+          <div class="qr-label" id="qrLabel">加载中...</div>
+          <canvas id="mapQrCanvas" style="display:none;" width="120" height="120"></canvas>
+        </div>
+      </div>
+      <!-- Mobile: click to navigate button below map -->
+      <a class="map-nav-btn" id="mapNavBtn" href="javascript:;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+        点击导航至高德地图
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta">
+  <div class="container reveal">
+    <div class="section-overline">Get In Touch</div>
+    <h2 class="section-title">开启您的<em>品质生活之旅</em></h2>
+    <p class="section-desc">预约免费上门测量，西安工厂直供，专业顾问为您量身定制专属方案</p>
+    <a href="tel:15319992005" class="btn-solid">
+      立即拨打 15319992005
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="nav-logo-main" style="color: var(--white); font-size: 20px;">皇雅系统门窗</div>
+        <div class="nav-logo-sub" style="color: rgba(255,255,255,0.3); margin-top: 4px;">做没有中间商赚差价的系统好门窗</div>
+        <p class="footer-desc">皇亚铝业科技有限公司旗下品牌，西安工厂坐落于灞桥区秦汉大道2699号，服务西北区域客户。</p>
+      </div>
+      <div>
+        <h4 class="footer-heading">产品中心</h4>
+        <ul class="footer-links">
+          <li><a href="products.html#tab-windows">系统平开窗</a></li>
+          <li><a href="products.html#tab-sliding">系统推拉门</a></li>
+          <li><a href="products.html#tab-sliding">阳光房系统</a></li>
+          <li><a href="products.html#tab-windows">幕墙系统</a></li>
+          <li><a href="products.html">查看全部产品 &rarr;</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">关于皇雅</h4>
+        <ul class="footer-links">
+          <li><a href="about.html">品牌故事</a></li>
+          <li><a href="about.html#xian-factory">西安工厂</a></li>
+          <li><a href="about.html#honors">荣誉资质</a></li>
+          <li><a href="about.html#timeline">发展历程</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">案例鉴赏</h4>
+        <ul class="footer-links">
+          <li><a href="cases.html">全部案例</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">视频展示</h4>
+        <ul class="footer-links">
+          <li><a href="videos.html">全部视频</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-heading">联系我们</h4>
+        <ul class="footer-links">
+          <li><a href="tel:15319992005">15319992005</a></li>
+          <li><a href="mailto:info@huangyamc.com">info@huangyamc.com</a></li>
+          <li><a href="#">陕西省西安市灞桥区新合街道秦汉大道2699号</a></li>
+          <li><a href="https://www.huangyamc.com" target="_blank">www.huangyamc.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 皇亚铝业科技有限公司·西安工厂 版权所有</p>
+      <p class="footer-icp">陕西省西安市灞桥区新合街道秦汉大道2699号</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ===== CONFIG =====
+  const AMAP_JS_API_KEY = 'ca1b7be2a11416de5fe9145909bfe32f';
+  const AMAP_SECURITY_KEY = '11d3d505f472baea2a5c363c46f8411e';
+
+  // 西安工厂坐标 (灞桥区新合街道秦汉大道2699号)
+  const FACTORY_LNG = 109.08627;
+  const FACTORY_LAT = 34.401361;
+  const FACTORY_NAME = '皇雅系统门窗西安工厂';
+  const FACTORY_ADDR = '陕西省西安市灞桥区新合街道秦汉大道2699号';
+
+  // 高德 URI 导航链接 (H5 扫码 / 点击跳转)
+  const AMAP_NAV_URI = 'https://uri.amap.com/marker?position=' + FACTORY_LNG + ',' + FACTORY_LAT + '&name=' + encodeURIComponent(FACTORY_NAME) + '&callnative=1';
+
+  // ===== SCROLL REVEAL =====
+  const reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  } else {
+    reveals.forEach(el => el.classList.add('visible'));
+  }
+
+  // ===== NAV =====
+  var nav = document.querySelector('.nav');
+  window.addEventListener('scroll', function() {
+    nav.classList.toggle('nav--solid', window.scrollY > 60);
+  }, { passive: true });
+
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('active');
+      });
+    });
+  }
+  // Close menu when clicking anywhere outside nav
+  document.addEventListener('click', function(e) {
+    var nav = document.getElementById('top');
+    if (nav && !nav.contains(e.target)) {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+    }
+  });
+
+  // ===== H5: CLICK TO NAVIGATE =====
+  document.getElementById('mapNavBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    // Try to open Amap app directly on mobile
+    window.location.href = 'amapuri://route/plan?sid=&sname=&did=&dname=' + encodeURIComponent(FACTORY_NAME) + '&dlat=' + FACTORY_LAT + '&dlon=' + FACTORY_LNG;
+    // Fallback: open URI page after short delay
+    setTimeout(function() {
+      window.location.href = AMAP_NAV_URI;
+    }, 1500);
+  });
+
+  // ===== AMAP INIT =====
+  function initAmap() {
+    const container = document.getElementById('amap-container');
+    if (!container) return;
+
+    // Load Amap JS API
+    window._AMapSecurityConfig = {
+      securityJsCode: AMAP_SECURITY_KEY,
+    };
+
+    const script = document.createElement('script');
+    script.src = 'https://webapi.amap.com/maps?v=2.0&key=' + AMAP_JS_API_KEY;
+    script.onload = function() {
+      if (typeof AMap === 'undefined') return;
+
+      const map = new AMap.Map('amap-container', {
+        zoom: 15,
+        center: [FACTORY_LNG, FACTORY_LAT],
+        resizeEnable: true,
+      });
+
+      // Ensure map renders correctly after reveal animation
+      setTimeout(function() {
+        map.resize();
+      }, 800);
+
+      // Marker
+      const marker = new AMap.Marker({
+        position: [FACTORY_LNG, FACTORY_LAT],
+        title: FACTORY_NAME,
+        icon: new AMap.Icon({
+          image: 'https://webapi.amap.com/theme/v1.3/markers/b/mark_bs.png',
+          size: new AMap.Size(19, 32),
+          imageSize: new AMap.Size(19, 32),
+        }),
+        anchor: 'bottom-center',
+        offset: new AMap.Pixel(0, 0),
+        label: {
+          content: '<div style="background:#1C1A18;color:#fff;padding:4px 10px;border-radius:4px;font-size:12px;white-space:nowrap;">' + FACTORY_NAME + '</div>',
+          offset: new AMap.Pixel(0, -40),
+        },
+      });
+      map.add(marker);
+    };
+    script.onerror = function() {
+      container.innerHTML = '<div class="factory-map-loading"><span>地图加载失败，请检查 API Key</span></div>';
+    };
+    document.head.appendChild(script);
+
+    // Generate QR code - cascade through multiple sources
+    var qrImg = document.getElementById('mapQrImg');
+    var qrLabel = document.getElementById('qrLabel');
+    if (qrImg) {
+      var navUri = encodeURIComponent(AMAP_NAV_URI);
+
+      // Try multiple QR image APIs (Chinese services first)
+      var apiUrls = [
+        'https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=' + navUri,
+        'https://api.pwmqr.com/qrcode/create/?text=' + navUri
+      ];
+      var apiIdx = 0;
+
+      function tryNextApi() {
+        if (apiIdx >= apiUrls.length) {
+          generateQrInline();
+          return;
+        }
+        qrImg.src = apiUrls[apiIdx];
+        qrImg.onload = function() {
+          // Check if loaded image looks like a QR code
+          if (qrImg.naturalWidth >= 50 && qrImg.naturalHeight >= 50) {
+            qrLabel.textContent = '扫码导航至高德地图';
+          } else {
+            apiIdx++;
+            tryNextApi();
+          }
+        };
+        qrImg.onerror = function() {
+          apiIdx++;
+          tryNextApi();
+        };
+      }
+
+      // Inline QR code generator as ultimate fallback
+      function generateQrInline() {
+        // Try qrcodejs (more reliable UTF-8 handling) first, then qrcode-generator
+        var libs = [
+          { url: 'https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js', use: function() {
+            var div = document.createElement('div');
+            div.style.display = 'none';
+            document.body.appendChild(div);
+            new QRCode(div, { text: AMAP_NAV_URI, width: 140, height: 140, colorDark: '#000000', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M });
+            setTimeout(function() {
+              var img = div.querySelector('img');
+              if (img && img.src) {
+                qrImg.src = img.src;
+                qrLabel.textContent = '扫码导航至高德地图';
+              } else {
+                // qrcodejs rendered canvas
+                var canvas = div.querySelector('canvas');
+                if (canvas) {
+                  qrImg.src = canvas.toDataURL();
+                  qrLabel.textContent = '扫码导航至高德地图';
+                } else {
+                  tryLib(1);
+                }
+              }
+              document.body.removeChild(div);
+            }, 100);
+          }},
+          { url: 'https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js', use: function() {
+            var qr = qrcode(5, 'M'); // explicit version 5 for this URL length
+            qr.addData(AMAP_NAV_URI);
+            qr.make();
+            var mc = qr.getModuleCount();
+            var cs = 6, mg = 8, sz = mc * cs + mg * 2;
+            var cv = document.createElement('canvas');
+            cv.width = sz; cv.height = sz;
+            var cx = cv.getContext('2d');
+            cx.fillStyle = '#fff'; cx.fillRect(0, 0, sz, sz);
+            cx.fillStyle = '#000';
+            for (var r = 0; r < mc; r++)
+              for (var c = 0; c < mc; c++)
+                if (qr.isDark(r, c))
+                  cx.fillRect(mg + c * cs, mg + r * cs, cs, cs);
+            qrImg.src = cv.toDataURL();
+            qrLabel.textContent = '扫码导航至高德地图';
+          }}
+        ];
+        var li = 0;
+        function tryLib(idx) {
+          if (idx >= libs.length) { qrLabel.textContent = '加载失败'; return; }
+          var s = document.createElement('script');
+          s.src = libs[idx].url;
+          s.onload = function() {
+            try { libs[idx].use(); } catch(e) { tryLib(idx + 1); }
+          };
+          s.onerror = function() { tryLib(idx + 1); };
+          document.head.appendChild(s);
+        }
+        tryLib(0);
+      }
+
+      tryNextApi();
+    }
+  }
+
+  initAmap();
+
+  // ===== HONOR/PATENT LIGHTBOX =====
+  var honorLightbox = document.getElementById('honorLightbox');
+  var honorLightboxImg = document.getElementById('honorLightboxImg');
+  var honorLightboxClose = document.getElementById('honorLightboxClose');
+
+  function openLightbox(src) {
+    honorLightboxImg.src = src;
+    honorLightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    honorLightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.honor-wall-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var img = this.querySelector('img');
+      if (img) openLightbox(img.src);
+    });
+  });
+
+  document.querySelectorAll('.patent-wall-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var img = this.querySelector('img');
+      if (img) openLightbox(img.src);
+    });
+  });
+
+  if (honorLightboxClose) honorLightboxClose.addEventListener('click', closeLightbox);
+  if (honorLightbox) {
+    honorLightbox.addEventListener('click', function(e) {
+      if (e.target === honorLightbox) closeLightbox();
+    });
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
+
+</body>
+</html>
