@@ -15,6 +15,7 @@ Disallow: /skills-lock.json
 Disallow: /window_test.html
 Disallow: /pretext.js
 Disallow: /product-showcase-v1.html
+Disallow: /index_v2.html
 
 User-agent: Baiduspider
 Allow: /
@@ -33,5 +34,6 @@ Disallow: /skills-lock.json
 Disallow: /window_test.html
 Disallow: /pretext.js
 Disallow: /product-showcase-v1.html
+Disallow: /index_v2.html
 
-Sitemap: https://www.huangyamc.com/sitemap.xml
+Sitemap: https://hya.snhanyue.com/sitemap.xml
