@@ -24,7 +24,7 @@ $SMTP_HOST  = 'smtp.mxhichina.com';
 $SMTP_PORT  = 465;
 $SMTP_USER  = 'vip@snhanyue.com';
 $SMTP_PASS  = 'Xl210123';
-$MAIL_TO    = 'huilong@snhanyue.com';
+$MAIL_TO    = 'huangya@snhanyue.com';
 $MAIL_FROM  = 'vip@snhanyue.com';
 $MAIL_FROM_NAME = '皇雅官网';
 

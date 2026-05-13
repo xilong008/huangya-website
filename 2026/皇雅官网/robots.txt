@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+Disallow: /shared/
+Disallow: /api/
+Disallow: /logs/
+Disallow: /.vercel/
+Disallow: /.claude/
+Disallow: /.agents/
+Disallow: /huangya-window-anim/
+Disallow: /huangya-website/
+Disallow: /products_images/
+Disallow: /case_images/
+Disallow: /资质文件/
+Disallow: /skills-lock.json
+Disallow: /window_test.html
+Disallow: /pretext.js
+Disallow: /product-showcase-v1.html
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /shared/
+Disallow: /api/
+Disallow: /logs/
+Disallow: /.vercel/
+Disallow: /.claude/
+Disallow: /.agents/
+Disallow: /huangya-window-anim/
+Disallow: /huangya-website/
+Disallow: /products_images/
+Disallow: /case_images/
+Disallow: /资质文件/
+Disallow: /skills-lock.json
+Disallow: /window_test.html
+Disallow: /pretext.js
+Disallow: /product-showcase-v1.html
+
+Sitemap: https://www.huangyamc.com/sitemap.xml
