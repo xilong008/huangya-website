@@ -1,0 +1,4 @@
+{
+  "buildCommand": "mkdir -p public && cp -R '2026/皇雅官网'/.* public/ 2>/dev/null || true && cp -R '2026/皇雅官网'/* public/",
+  "outputDirectory": "public"
+}
