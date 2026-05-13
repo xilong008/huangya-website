@@ -211,9 +211,10 @@
       border: 1px solid rgba(0,0,0,0.1);
       border-radius: 8px;
       box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-      padding: 16px;
+      padding: 20px;
       text-align: center;
       z-index: 1001;
+      min-width: 200px;
     }
     .wechat-dropdown::before {
       content: '';
@@ -225,7 +226,7 @@
       border-bottom: 8px solid var(--white);
     }
     .nav-wechat:hover .wechat-dropdown { display: block; }
-    .wechat-dropdown img { width: 160px; height: 160px; display: block; }
+    .wechat-dropdown img { width: 180px; height: auto; display: block; margin: 0 auto; }
     .wechat-dropdown p { font-size: 11px; color: var(--warm-gray); margin-top: 8px; }
     .nav-hamburger {
       display: none;
