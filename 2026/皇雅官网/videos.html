@@ -231,6 +231,48 @@
       transition: all 0.3s var(--ease);
     }
     .nav-cta:hover { background: var(--gold-dark); }
+    .nav-wechat {
+      position: relative;
+      cursor: pointer;
+      padding: 10px 20px;
+      background: var(--ink);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 2px;
+      transition: all 0.3s var(--ease);
+    }
+    .nav-wechat:hover { background: var(--gold-dark); }
+    .nav-wechat svg { width: 16px; height: 16px; }
+    .wechat-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      right: 0;
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      padding: 16px;
+      text-align: center;
+      z-index: 1001;
+    }
+    .wechat-dropdown::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      right: 24px;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 8px solid var(--white);
+    }
+    .nav-wechat:hover .wechat-dropdown { display: block; }
+    .wechat-dropdown img { width: 160px; height: 160px; display: block; }
+    .wechat-dropdown p { font-size: 11px; color: var(--warm-gray); margin-top: 8px; }
     .nav-hamburger {
       display: none;
       flex-direction: column;
@@ -548,6 +590,9 @@
       align-items: center;
     }
     .footer-copy, .footer-icp { font-size: 12px; font-weight: 300; }
+    .footer-qr { text-align: center; }
+    .footer-qr img { width: 120px; height: 120px; margin: 0 auto 8px; }
+    .footer-qr p { font-size: 11px; color: var(--warm-gray); }
     @media (max-width: 1024px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 768px) {
       .footer-grid { grid-template-columns: 1fr; }
@@ -587,7 +632,14 @@
     <button class="nav-hamburger" id="hamburger" aria-label="菜单">
       <span></span><span></span><span></span>
     </button>
-    <a href="index.html#contact" class="nav-cta">预约咨询</a>
+    <div class="nav-wechat">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM8.5 15.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"/></svg>
+      微信咨询
+      <div class="wechat-dropdown">
+        <img src="assets/wechat-qr.png" alt="微信咨询二维码">
+        <p>扫码添加微信</p>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -683,6 +735,10 @@
           <li><a href="#">陕西省西安市灞桥区新合街道秦汉大道2699号</a></li>
           <li><a href="https://www.huangyamc.com" target="_blank">www.huangyamc.com</a></li>
         </ul>
+        <div class="footer-qr">
+          <img src="assets/wechat-qr.png" alt="微信咨询二维码">
+          <p>扫码添加微信</p>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
